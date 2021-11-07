@@ -228,12 +228,11 @@ p {
 
 .hero .data-modal-open:hover,
 .hero .data-modal-open:focus {
+  background: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
-.feature-section {
-  padding-top: 94px;
-}
+/* Модальное окно */
 
 .backdrop-modal {
   position: fixed;
@@ -266,6 +265,7 @@ p {
 
   width: 528px;
   height: 581px;
+  padding: 40px;
 
   transform: translate(-50%, -50%) scale(1);
 
@@ -289,12 +289,205 @@ p {
   align-items: center;
   justify-content: center;
 
+  padding: 0;
+  cursor: pointer;
+
   background-color: var(--primary-white-color);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.data-modal-close .icon {
+  transition: fill var(--transition-duration) var(--transition-timing-function);
+}
+
+.data-modal-close:hover .icon,
+.data-modal-close:focus .icon {
+  fill: var(--accent-color);
+}
+
+.modal-header {
+  display: block;
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--title-text-color);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  display: inline-block;
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.form-field .input-container {
+  position: relative;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+
+  padding-top: 11px;
+  padding-bottom: 11px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border var(--transition-duration) var(--transition-timing-function);
+}
+
+.form-input {
+  height: 40px;
+  padding-left: 42px;
+  padding-right: 12px;
+}
+
+.form-field .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+
+  transition: fill var(--transition-duration) var(--transition-timing-function);
+}
+
+.form-field:focus-within .form-input,
+.form-field:focus-within > .form-textarea {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+
+.form-field:focus-within .input-icon {
+  fill: var(--accent-color);
+}
+
+.form-textarea {
+  resize: none;
+  height: 120px;
+
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.form-textarea::placeholder {
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.confirmation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.checkbox {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.checkbox-icon {
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+}
+
+.checkbox:checked + .checkbox-icon {
+  background-color: var(--accent-color);
+  border-color: transparent;
+  background-image: url(../images/checkbox.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+
+.confirmation-label {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.confirmation-text {
+  margin-right: 4px;
+}
+
+.confirmation-link {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+.submit-button {
+  width: 200px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  background-color: var(--accent-color);
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: var(--primary-white-color);
+  cursor: pointer;
+
+  transition: background-color var(--transition-duration) var(--transition-timing-function);
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  background-color: #188ce8;
+}
+
 /* Feature section */
+
+.feature-section {
+  padding-top: 94px;
+}
 
 .feature-list {
   display: flex;
@@ -584,7 +777,9 @@ p {
   padding-bottom: 100px;
 }
 
-.join-title {
+.join-title,
+.subscribe-label {
+  display: inline-block;
   margin-bottom: 20px;
 
   color: var(--primary-white-color);
@@ -597,6 +792,8 @@ p {
 
 .footer-join .social-links-list {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dark-social-link {
@@ -605,6 +802,83 @@ p {
 
 .dark-social-link .link-icon {
   fill: var(--primary-white-color);
+}
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 12px;
+}
+
+.subscribe-input {
+  width: 358px;
+  height: 50px;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  background-color: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+
+  color: var(--primary-white-color);
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  transition: border-color var(--transition-duration) var(--transition-timing-function);
+}
+
+.subscribe-container:focus-within .subscribe-input {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-subscribe {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-end;
+
+  padding-top: 72px;
+  padding-bottom: 94px;
+}
+
+.subscribe-button {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: background-color var(--transition-duration) var(--transition-timing-function);
+}
+
+.subscribe-button:hover,
+.subscribe-button:focus {
+  background-color: #188ce8;
+}
+
+.button-text {
+  color: var(--primary-white-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  margin-right: 10px;
 }
 
 /* Project page */
