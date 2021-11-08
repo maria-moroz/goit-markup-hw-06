@@ -421,6 +421,8 @@ p {
 
   border: 2px solid var(--title-text-color);
   border-radius: 2px;
+  transition: background-color var(--transition-duration) var(--transition-timing-function),
+    border-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .checkbox:checked + .checkbox-icon {
